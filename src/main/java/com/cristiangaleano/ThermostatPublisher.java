@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 public class ThermostatPublisher
 {
+    private static final String BROKER = "tcp://localhost:1883";
+    private static final String TOPIC = "home/thermostat";
     public static void main( String[] args )
     {
-    
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
        int idealTemperature = 22;
        int currentTemperature;
        int counter = 0;
