@@ -15,9 +15,14 @@ public class ThermostatPublisher
        int maxAttempts = scanner.nextInt();
 
         while (counter < maxAttempts) {
+            try {
             currentTemperature = RandomTemperature.getRandomTemperature();
             System.out.println(currentTemperature);
             counter++; 
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         scanner.close();
