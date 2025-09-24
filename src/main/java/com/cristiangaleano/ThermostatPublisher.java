@@ -3,7 +3,7 @@ package com.cristiangaleano;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Client 
+public class ThermostatPublisher
 {
     public static void main( String[] args )
     {
