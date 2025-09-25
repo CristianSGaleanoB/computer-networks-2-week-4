@@ -6,11 +6,10 @@ import java.util.Random;
 import org.json.JSONObject;
 
 import com.hivemq.client.mqtt.MqttClient;
-import com.hivemq.client.mqtt.datatypes.MqttQos;
 import com.hivemq.client.mqtt.mqtt5.Mqtt5BlockingClient;
 import com.hivemq.client.mqtt.mqtt5.message.publish.Mqtt5Publish;
 
-public class ThermostatPublisher
+public class ThermostatPublisherInClass
 {
     private static final String BROKER = "tcp://localhost:1883";
     private static final String TOPIC = "home/thermostat";
@@ -19,15 +18,20 @@ public class ThermostatPublisher
         Mqtt5BlockingClient clientPub = MqttClient.builder()
                 .useMqttVersion5()
                 .identifier("thermostat-publisher")
-                .serverHost("Localhost")
-                .serverPort(1883)
+                .serverHost("ae7eed9aad04409ca3733870dcfcd866.s1.eu.hivemq.cloud")
+                .serverPort(8883)
+                .sslWithDefaultConfig()
+                .simpleAuth()
+                    .username("hivemq.webclient.1758826468479")
+                    .password("aEyi%S1DU.5Yl!te73&P".getBytes(StandardCharsets.UTF_8))
+                    .applySimpleAuth()
                 .buildBlocking();
 
         try{
             clientPub.connect();
-            System.out.println("Connected to MQTT broker at" + BROKER);
+            System.out.println("Connected to MQTT broker at" );
         }catch(Exception e){
-            System.out.println("Failed to connect to MQTT broker at" + BROKER);
+            System.out.println("Failed to connect to MQTT broker at" );
 
         }
 
@@ -41,7 +45,6 @@ public class ThermostatPublisher
             Mqtt5Publish publicMessage = Mqtt5Publish.builder()
                     .topic(TOPIC)
                     .payload(payload.toString().getBytes(StandardCharsets.UTF_8))
-                    .qos(MqttQos.AT_LEAST_ONCE)
                     .build();
 
             clientPub.publish(publicMessage);
