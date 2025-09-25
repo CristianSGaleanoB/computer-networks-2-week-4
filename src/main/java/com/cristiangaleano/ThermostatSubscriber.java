@@ -31,7 +31,7 @@ public class ThermostatSubscriber {
         }));
 
         try (Mqtt5Publishes publishes = client.publishes(MqttGlobalPublishFilter.ALL)) {
-iuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuñppppppppppppppppl
+
             boolean connected = false;
             int attempts = 0;
             while (!connected && attempts < 5) {
